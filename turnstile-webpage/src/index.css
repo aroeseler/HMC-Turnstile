@@ -1,0 +1,175 @@
+div {
+  padding: 0 0 0 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+header {
+  color: #fff;
+  background-color: #000000;
+  padding: 2% 0 1.75% 1%;
+}
+
+header h1 {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  margin: 0;
+  margin-left: 1%;
+  vertical-align: middle;
+}
+
+.container {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.small-container {
+  display: flex;
+  margin-top: .5%;
+  width: 75%;
+}
+
+.wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.display-count {
+  border-radius: 2px;
+  border-top: 3px solid #000000;
+  margin-right: 50px;
+  background-color: rgb(237, 237, 237);
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 34px;  
+  width: 25%;
+  margin-right: auto;
+}
+
+.display-day {
+  border-radius: 2px;
+  border-top: 3px solid #000000;
+  margin-right: 50px;
+  background-color: rgb(237, 237, 237);
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 34px;  
+  width: 15%;
+  margin-right: auto;
+}
+
+.display-history{
+  border-radius: 2px;
+  border-top: 3px solid #000000;
+  margin-right: 25px;
+  background-color: rgb(237, 237, 237);
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 0px;  
+  width: 22%;
+  margin-right: auto;
+}
+
+.display-meal {
+  border-radius: 2px;
+  border-top: 3px solid #000000;
+  background-color: rgb(237, 237, 237);
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  min-width: 15%;
+  height: 10%;
+  margin-left: 5%;
+}
+
+.display-about {
+  border-radius: 2px;
+  border-top: 3px solid #000000;
+  background-color: rgb(237, 237, 237);
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-top: 34px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  width: calc(100%);
+  list-style-type: none;
+  color: #000;
+}
+
+
+.button-Bar {
+  width: 100%;
+  height: 0%;
+}
+
+/* different spacings for different buttons - not optimal solution but it works */
+day {
+  margin-right: 2%;
+}
+
+breakfast {
+  margin-left: 14%;
+}
+
+lunch {
+  margin-left: 16%;
+}
+
+dinner {
+  margin-left: 16%;
+}
+
+
+li h3 {
+  background-color: #000000;
+  margin: 0;
+  color: #fff;
+  font-weight: 300;
+  padding: 15px;
+}
+
+li p {
+  padding: 15px;
+}
+
+form button {
+  width: 10%;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+button {
+  width: 12%;
+  height: 4%;
+  background-color: rgb(225, 225, 2);
+  cursor: pointer;
+  border: 0;
+  color: #fff;
+  font-size: 1vw;
+  padding: 10px 6px;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.14), 1px 10px 10px -2px rgba(0,0,0,.12), 2px 1px 1px 0 rgba(0,0,0,.2);
+}
+
+.meal {
+  margin-top: .25%;
+}
+
+/* This is the invisible rectangle that is used to keep proper spacing */
+rect {
+  margin-left: 12%;
+}
