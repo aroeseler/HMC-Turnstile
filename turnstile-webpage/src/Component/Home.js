@@ -64,7 +64,17 @@ export default class Home extends React.Component {
       //     // minute: this.state.time.minutes(),
       //     // meal: this.getMeal()
       //   }
-      //   if(meal !== "Closed" && this.state.shouldLogData === true) {database.ref("history").push(entry);}
+      //   if(this.state.meal !== "Closed" && this.state.shouldLogData === true) {database.ref("history").push(entry);}
+      // }
+      // if(this.state.time.seconds() % 5 === 0) {
+      //   const entry = {
+      //     value: 73,
+      //     weekday: 1,
+      //     hour: 9,
+      //     minute: 25,
+      //     meal: "breakfast"
+      //   }
+      //   this.database.ref("history").push(entry);
       // }
     }
 

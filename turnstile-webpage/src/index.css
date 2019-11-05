@@ -26,13 +26,12 @@ header h1 {
 
 .container {
   display: flex;
-  max-width: 1100px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 1.5%;
 }
 
 .small-container {
-  display: flex;
+  display: inline-flex;
   margin-top: .5%;
   width: 75%;
 }
