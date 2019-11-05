@@ -339,10 +339,10 @@ render() {
         </div>
         {/* Keeps the chart and info box in one div element to keep them on the same line */}
         <div className = "small-container">
-            <canvas height = "400" ref={this.chartRef}/>
+            <canvas height = "425" ref={this.chartRef}/>
             <section className="display-meal">
-                <h1>{this.getDay()}</h1>
-                <h1>{this.state.meal.charAt(0).toUpperCase()}{this.state.meal.substring(1)}</h1>
+                <h2>{this.getDay()}</h2>
+                <h2>{this.state.meal.charAt(0).toUpperCase()}{this.state.meal.substring(1)}</h2>
             </section>
         </div>
         </div>

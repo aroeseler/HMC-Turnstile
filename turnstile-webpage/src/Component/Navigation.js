@@ -14,7 +14,7 @@ const Navigation = () => {
                             <button>History</button>
                         </Link></day>
                         <day><a href = {'https://menu.yancey.io/'}>
-                            <button>Yancey's 5C Menu</button>
+                            <button>5C Menu</button>
                         </a></day>
                         {/*
                         <day><Link to = {'/About'}>

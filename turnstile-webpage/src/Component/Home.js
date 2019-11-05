@@ -145,6 +145,7 @@ export default class Home extends React.Component {
               ]
           },
           options: {
+              maintainAspectRatio: false,
               animation: {duration: 0},
               // hide title and other misc info
               legend: {
@@ -378,11 +379,11 @@ export default class Home extends React.Component {
           </header>
           <div className="container">
             <section className="display-count">
-                <center><h1>The number of people in the Hoch is:</h1>
+                <center><h2>Hoch Population:</h2>&nbsp;
                 {/* loads the value of currentCount */}
-                <h1>{this.state.currentCount}</h1>
+                <h2>{this.state.currentCount}</h2>
                 <h3>{this.state.time.format("dddd, MMMM Do YYYY, h:mm:ss a")}</h3>
-                <h1>{this.getMeal()}</h1></center>
+                <h2>{this.getMeal()}</h2></center>
             </section>
             <div className = "small-container">
               <canvas ref={this.chartRef}/>
