@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "flipper-glob-webpage",
-    "turnstile": "flipper-glob-webpage"
+    "resizing test": "hmc-turnstile",
+    "resizing for mobile": "hmc-turnstile",
+    "resizing buttons for mobile": "hmc-turnstile"
   }
 }

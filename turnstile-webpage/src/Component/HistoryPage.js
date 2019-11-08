@@ -73,6 +73,7 @@ export default class HistoryPage extends React.Component {
                 ]
             },
             options: {
+                maintainAspectRatio: false,
                 animation: {duration: 0},
                 // hide title and other misc info
                 legend: {display: false},
@@ -324,7 +325,7 @@ render() {
                         <breakfast><button className="meal" onClick = {() => this.loadHistory(this.state.day, "breakfast")}>
                                 {(this.state.day === 0 || this.state.day === 6) ? 
                                     "Brunch":"Breakfast"}</button></breakfast>
-                        {/* Ugly workaround to keep the button spacing consistent. If the lunch button
+                        {/* Workaround to keep the button spacing consistent. If the lunch button
                             is not displayed, it creates a white rectangle to fill the space */}
                         {(this.state.day === 0 || this.state.day === 6) 
                             ? <lunch><rect></rect></lunch>
@@ -338,10 +339,10 @@ render() {
         </div>
         {/* Keeps the chart and info box in one div element to keep them on the same line */}
         <div className = "small-container">
-            <canvas ref={this.chartRef}/>
+            <canvas height = "425" ref={this.chartRef}/>
             <section className="display-meal">
-                <h1>{this.getDay()}</h1>
-                <h1>{this.state.meal.charAt(0).toUpperCase()}{this.state.meal.substring(1)}</h1>
+                <h2>{this.getDay()}</h2>
+                <h2>{this.state.meal.charAt(0).toUpperCase()}{this.state.meal.substring(1)}</h2>
             </section>
         </div>
         </div>
