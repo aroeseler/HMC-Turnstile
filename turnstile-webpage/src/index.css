@@ -1,5 +1,6 @@
 div {
   padding: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 body {
@@ -15,7 +16,7 @@ header {
 }
 
 header h1 {
-  font-size: 25px;
+  font-size: 150%;
   font-weight: 600;
   letter-spacing: 0.3px;
   display: inline-block;
@@ -24,11 +25,25 @@ header h1 {
   vertical-align: middle;
 }
 
+h1 {
+  font-size: 200%;
+  margin-top: 0;
+}
+
 h2 {
   font-size: 100%;
   letter-spacing: 0.3px;
   display: inline-block;
   margin: 0;
+  vertical-align: middle;
+}
+
+h3 {
+  font-size: 100%;
+  font-weight: 100;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  margin: 0 0 1% 0;
   vertical-align: middle;
 }
 
@@ -75,9 +90,9 @@ h2 {
   border-radius: 2px;
   border-top: 3px solid #000000;
   background-color: rgb(237, 237, 237);
-  padding: 6% 3%;
+  padding: 2% 1.5%;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
-  margin-top: 5%;
+  margin-top: 1.5%;
 }
 
 ul {
@@ -99,7 +114,7 @@ li {
   height: 0%;
 }
 
-/* different spacings for different buttons - not optimal solution but it works */
+/* Different spacing for different button types */
 day {
   margin-right: 2%;
 }
@@ -141,11 +156,14 @@ button {
   background-color: rgb(225, 225, 2);
   cursor: pointer;
   border: 0;
-  color: rgb(255, 255, 255);
-  font-size: 45%;
+  color: #000;
+  font-size: 80%;
   font-weight: bold;
   padding: 1% 1%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,.14), 1px 10px 10px -2px rgba(0,0,0,.12), 2px 1px 1px 0 rgba(0,0,0,.2);
+  /* Prevent button resizing on smaller screens and cut off text */
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .meal {
