@@ -325,7 +325,7 @@ render() {
                         <breakfast><button className="meal" onClick = {() => this.loadHistory(this.state.day, "breakfast")}>
                                 {(this.state.day === 0 || this.state.day === 6) ? 
                                     "Brunch":"Breakfast"}</button></breakfast>
-                        {/* Ugly workaround to keep the button spacing consistent. If the lunch button
+                        {/* Workaround to keep the button spacing consistent. If the lunch button
                             is not displayed, it creates a white rectangle to fill the space */}
                         {(this.state.day === 0 || this.state.day === 6) 
                             ? <lunch><rect></rect></lunch>
