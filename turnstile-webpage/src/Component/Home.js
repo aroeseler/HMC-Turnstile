@@ -382,7 +382,9 @@ export default class Home extends React.Component {
                 <center><h2>Hoch Population:</h2>&nbsp;
                 {/* loads the value of currentCount */}
                 <h2>{this.state.currentCount}</h2>
-                <h3>{this.state.time.format("dddd, MMMM Do YYYY, h:mm:ss a")}</h3>
+                <br/>
+                <h2>{this.state.time.format("dddd, MMMM Do YYYY, h:mm:ss a")}</h2>
+                <br/>
                 <h2>{this.getMeal()}</h2></center>
             </section>
             <div className = "small-container">
