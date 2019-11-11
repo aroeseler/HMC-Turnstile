@@ -2,6 +2,8 @@
   "projects": {
     "resizing test": "hmc-turnstile",
     "resizing for mobile": "hmc-turnstile",
-    "resizing buttons for mobile": "hmc-turnstile"
+    "resizing buttons for mobile": "hmc-turnstile",
+    "default": "hmc-turnstile",
+    "resized for mobile and accessibility": "hmc-turnstile"
   }
 }

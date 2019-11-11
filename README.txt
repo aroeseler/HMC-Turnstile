@@ -13,9 +13,6 @@ yarn global add moment
 yarn global add moment-timezone
 yarn global add chart.js
 
-
-yarn global add react-router-dom	// I don't remember why this line is here
-					// but I dont think it's necessary
 ##########
 
 ##### Note for Deploy Firebase Hosting #####

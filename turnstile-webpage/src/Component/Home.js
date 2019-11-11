@@ -66,16 +66,6 @@ export default class Home extends React.Component {
       //   }
       //   if(this.state.meal !== "Closed" && this.state.shouldLogData === true) {database.ref("history").push(entry);}
       // }
-      // if(this.state.time.seconds() % 5 === 0) {
-      //   const entry = {
-      //     value: 73,
-      //     weekday: 1,
-      //     hour: 9,
-      //     minute: 25,
-      //     meal: "breakfast"
-      //   }
-      //   this.database.ref("history").push(entry);
-      // }
     }
 
     // Automatically called by React everytime a component is mounted (loaded)
@@ -341,6 +331,10 @@ export default class Home extends React.Component {
     // Uses day and time info to return a string corresponding to the current meal
     // returns Closed as default
     getMeal() {
+      if (this.state.time.hours() <= 19 && this.state.time.hours() >= 17) {
+        return "dinner";
+      }
+      // If it is Sunday or Saturday AND not dinner
       if(this.state.time.day() === 0 || this.state.time.day() === 6)
       {
         if((this.state.time.hours() === 12 && this.state.time.minutes() <= 45) 
@@ -348,11 +342,9 @@ export default class Home extends React.Component {
           || this.state.time.hours() === 11) {
           return "brunch";
         }
-        else if (this.state.time.hours() <= 19 && this.state.time.hours() >= 17) {
-          return "dinner";
-        }
         return "Closed";
       }
+      // If it is a weekday AND not dinner
       else if ((this.state.time.hours() === 7 && this.state.time.minutes() >= 30)
                 || this.state.time.hours() === 8
                 || (this.state.time.hours() === 9 && this.state.time.minutes() <= 30)) {
@@ -362,9 +354,6 @@ export default class Home extends React.Component {
                 || this.state.time.hours() === 12
                 || (this.state.time.hours() === 13 && this.state.time.minutes() <= 15)) {
         return "lunch";
-      }
-      else if (this.state.time.hours() <= 19 && this.state.time.hours() >= 17) {
-        return "dinner";
       }
       return "Closed";
     }
