@@ -150,12 +150,6 @@ li p {
   padding: 15px;
 }
 
-form button {
-  width: 10%;
-  margin-top: 5px;
-  margin-right: 5px;
-}
-
 button {
   width: 12%;
   height: 4%;
@@ -164,9 +158,8 @@ button {
   border: 0;
   color: #000;
   font-size: 1.5vh;
-  font-size: 1.5vh;
   font-weight: bold;
-  padding: 1% 1%;
+  padding: 1% 0;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,.14), 1px 10px 10px -2px rgba(0,0,0,.12), 2px 1px 1px 0 rgba(0,0,0,.2);
   /* Prevent button resizing on smaller screens and cut off text */
   white-space: nowrap;

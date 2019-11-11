@@ -327,7 +327,7 @@ render() {
                         <breakfast><button className = {this.state.meal === "brunch" || this.state.meal === "breakfast" ? "selected":"meal"} 
                                 onClick = {() => this.loadHistory(this.state.day, "breakfast")}> {/* loads relevant data on click*/}
                                 {(this.state.day === 0 || this.state.day === 6) ?   
-                                    "Brunch":"Breakfast"}</button></breakfast> {/* Displays Brunch or Breakfast depending on the day */}
+                                    "Brunch":"Breakfast"}</button></breakfast>{/* Displays Brunch or Breakfast depending on the day */}
 
                         {/* Workaround to keep the button spacing consistent. If the lunch button
                             is not displayed, it creates a white rectangle to fill the space */}
