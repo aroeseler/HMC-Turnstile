@@ -44,6 +44,7 @@ export default class Home extends React.Component {
         });
       });
       
+
       // If the meal has changed, load info for the next meal
       // Also handles reseting the counter to 0 during off hours
       if(this.state.meal !== this.getMeal())
@@ -121,7 +122,21 @@ export default class Home extends React.Component {
           ":" + (elem.minute > 9 ? elem.minute : "0"+elem.minute));
           data.push(elem.pastCount);
       });
-      new Chart(myChartRef, {
+
+      if(this.chart) {
+        this.chart.destroy();
+      }
+
+      // reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
+      // Arguments: x0,y0,x1,y1 where 0 is start point and 1 is end point
+      // Creates gradient along line given by two coordinates
+      var fillPattern = myChartRef.createLinearGradient(0,50,0,300);
+      // reference: https://www.w3schools.com/tags/canvas_addcolorstop.asp
+      // integer is value that represents the position between start and end in gradient
+      fillPattern.addColorStop(.75, 'green');
+      fillPattern.addColorStop(.5, 'yellow');
+      fillPattern.addColorStop(.1, 'red');
+      this.chart = new Chart(myChartRef, {
           type: "line",
           data: {
               //Bring in data
@@ -129,7 +144,8 @@ export default class Home extends React.Component {
               datasets: [
                   {
                       // Set color to white with a darkness value of .35 (grey)
-                      backgroundColor: "rgba(0,0,0,.35)",
+                      // backgroundColor: "rgba(0,0,0,.35)",
+                      backgroundColor: fillPattern,
                       data: data
                   }
               ]
@@ -138,9 +154,7 @@ export default class Home extends React.Component {
               maintainAspectRatio: false,
               animation: {duration: 0},
               // hide title and other misc info
-              legend: {
-                  display: false
-              },
+              legend: {display: false},
               scales: {
                   yAxes: [{
                       ticks: {
@@ -376,7 +390,7 @@ export default class Home extends React.Component {
                 <br/>
                 <h2>{this.getMeal()}</h2></center>
             </section>
-            <div className = "small-container">
+            <div className="homeGraph">
               <canvas ref={this.chartRef}/>
             </div>
           </div>

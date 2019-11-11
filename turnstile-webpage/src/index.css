@@ -1,8 +1,8 @@
-div {
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
-}
-
+/* Helpful site for font-sizing 
+   https://stackoverflow.com/questions/11777598/font-size-relative-to-the-users-screen-resolution
+   % is based off 12 pt font
+   vw and vh stand for viewport width and viewport height, and scale with window size  
+*/
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #fff;
@@ -16,7 +16,7 @@ header {
 }
 
 header h1 {
-  font-size: 150%;
+  font-size: 5vh;
   font-weight: 600;
   letter-spacing: 0.3px;
   display: inline-block;
@@ -31,7 +31,7 @@ h1 {
 }
 
 h2 {
-  font-size: 100%;
+  font-size: 2.5vw;
   letter-spacing: 0.3px;
   display: inline-block;
   margin: 0;
@@ -53,10 +53,16 @@ h3 {
   padding-top: 1.5%;
 }
 
+.homeGraph {
+  width: 100%;
+  height: 65vh;
+}
+
 .small-container {
   display: inline-flex;
   margin-top: .5%;
-  width: 75%;
+  width: 100%;
+  height: 100%;
 }
 
 .wrapper {
@@ -69,15 +75,15 @@ h3 {
   border-top: 3px solid #000000;
   margin-right: 5%;
   background-color: rgb(237, 237, 237);
-  padding: 6% 3%;
+  padding: 5vh 1vw;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
   margin-bottom: 5%;  
-  width: 25%;
+  width: 20vw;
+  height: 100%;
   margin-right: auto;
 }
 
 .display-meal {
-  border-radius: 2px;
   border-top: 3px solid #000000;
   background-color: rgb(237, 237, 237);
   padding: 6% 3%;
@@ -157,7 +163,8 @@ button {
   cursor: pointer;
   border: 0;
   color: #000;
-  font-size: 80%;
+  font-size: 1.5vh;
+  font-size: 1.5vh;
   font-weight: bold;
   padding: 1% 1%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,.14), 1px 10px 10px -2px rgba(0,0,0,.12), 2px 1px 1px 0 rgba(0,0,0,.2);
@@ -166,8 +173,18 @@ button {
   overflow: hidden;
 }
 
+.thinText {
+  font-weight: lighter;
+}
+
 .meal {
   margin-top: .25%;
+  font-weight: lighter;
+}
+
+.selected {
+  font-weight: lighter;
+  background-color: rgb(0, 175, 0);
 }
 
 /* This is the invisible rectangle that is used to keep proper spacing */

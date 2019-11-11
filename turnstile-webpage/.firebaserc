@@ -4,6 +4,10 @@
     "resizing for mobile": "hmc-turnstile",
     "resizing buttons for mobile": "hmc-turnstile",
     "default": "hmc-turnstile",
-    "resized for mobile and accessibility": "hmc-turnstile"
+    "resized for mobile and accessibility": "hmc-turnstile",
+    "dynamic fonts": "hmc-turnstile",
+    "graph resizing": "hmc-turnstile",
+    "home text width": "hmc-turnstile",
+    "color coded buttons": "hmc-turnstile"
   }
 }

@@ -300,19 +300,19 @@ render() {
                 {/* Buttons that change the displayed day */}
                 <section className = "button-Bar">
                     <li>
-                        <day><button onClick={() => this.loadHistory(0, "brunch")}>
+                        <day><button className = {this.state.day === 0 ? "selected" : "thinText"} onClick={() => this.loadHistory(0, "brunch")}>
                                 Sunday</button></day>
-                        <day><button onClick={() => this.loadHistory(1, "breakfast")}>
+                        <day><button className = {this.state.day === 1 ? "selected" : "thinText"} onClick={() => this.loadHistory(1, "breakfast")}>
                                 Monday</button></day>
-                        <day><button onClick={() => this.loadHistory(2, "breakfast")}>
+                        <day><button className = {this.state.day === 2 ? "selected" : "thinText"} onClick={() => this.loadHistory(2, "breakfast")}>
                                 Tuesday</button></day>
-                        <day><button onClick={() => this.loadHistory(3, "breakfast")}>
+                        <day><button className = {this.state.day === 3 ? "selected" : "thinText"} onClick={() => this.loadHistory(3, "breakfast")}>
                                 Wednesday</button></day>
-                        <day><button onClick={() => this.loadHistory(4, "breakfast")}>
+                        <day><button className = {this.state.day === 4 ? "selected" : "thinText"} onClick={() => this.loadHistory(4, "breakfast")}>
                                 Thursday</button></day>
-                        <day><button onClick={() => this.loadHistory(5, "breakfast")}>
+                        <day><button className = {this.state.day === 5 ? "selected" : "thinText"} onClick={() => this.loadHistory(5, "breakfast")}>
                                 Friday</button></day>
-                        <day><button onClick={() => this.loadHistory(6, "brunch")}>
+                        <day><button className = {this.state.day === 6 ? "selected" : "thinText"} onClick={() => this.loadHistory(6, "brunch")}>
                                 Saturday</button></day>
                     </li>
                 </section>
@@ -321,17 +321,21 @@ render() {
                 {/* Buttons that change the displayed meal */}
                 <section className = "button-Bar">
                     <li>
-                        {/* Display Brunch or Breakfast, depending on the day */}
-                        <breakfast><button className="meal" onClick = {() => this.loadHistory(this.state.day, "breakfast")}>
-                                {(this.state.day === 0 || this.state.day === 6) ? 
-                                    "Brunch":"Breakfast"}</button></breakfast>
+                        {/* Display Brunch or Breakfast, depending on the day 
+                                className works by setting the style based on the current meal. selected = green color. Meal = standard yellow        
+                        */}
+                        <breakfast><button className = {this.state.meal === "brunch" || this.state.meal === "breakfast" ? "selected":"meal"} 
+                                onClick = {() => this.loadHistory(this.state.day, "breakfast")}> {/* loads relevant data on click*/}
+                                {(this.state.day === 0 || this.state.day === 6) ?   
+                                    "Brunch":"Breakfast"}</button></breakfast> {/* Displays Brunch or Breakfast depending on the day */}
+
                         {/* Workaround to keep the button spacing consistent. If the lunch button
                             is not displayed, it creates a white rectangle to fill the space */}
                         {(this.state.day === 0 || this.state.day === 6) 
                             ? <lunch><rect></rect></lunch>
-                            : <lunch><button className="meal" onClick = {() => this.loadHistory(this.state.day, "lunch")}>
+                            : <lunch><button className = {this.state.meal === "lunch" ? "selected":"meal"} onClick = {() => this.loadHistory(this.state.day, "lunch")}>
                                 Lunch</button></lunch>}
-                        <dinner><button className="meal" onClick = {() => this.loadHistory(this.state.day, "dinner")}>
+                        <dinner><button className = {this.state.meal === "dinner" ? "selected":"meal"} onClick = {() => this.loadHistory(this.state.day, "dinner")}>
                                 Dinner</button></dinner>
                     </li>
                 </section>
@@ -340,10 +344,6 @@ render() {
         {/* Keeps the chart and info box in one div element to keep them on the same line */}
         <div className = "small-container">
             <canvas height = "425" ref={this.chartRef}/>
-            <section className="display-meal">
-                <h2>{this.getDay()}</h2>
-                <h2>{this.state.meal.charAt(0).toUpperCase()}{this.state.meal.substring(1)}</h2>
-            </section>
         </div>
         </div>
         );
