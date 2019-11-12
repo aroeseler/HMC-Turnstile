@@ -44,6 +44,7 @@ export default class Home extends React.Component {
         });
       });
       
+
       // If the meal has changed, load info for the next meal
       // Also handles reseting the counter to 0 during off hours
       if(this.state.meal !== this.getMeal())
@@ -65,16 +66,6 @@ export default class Home extends React.Component {
       //     // meal: this.getMeal()
       //   }
       //   if(this.state.meal !== "Closed" && this.state.shouldLogData === true) {database.ref("history").push(entry);}
-      // }
-      // if(this.state.time.seconds() % 5 === 0) {
-      //   const entry = {
-      //     value: 73,
-      //     weekday: 1,
-      //     hour: 9,
-      //     minute: 25,
-      //     meal: "breakfast"
-      //   }
-      //   this.database.ref("history").push(entry);
       // }
     }
 
@@ -131,7 +122,21 @@ export default class Home extends React.Component {
           ":" + (elem.minute > 9 ? elem.minute : "0"+elem.minute));
           data.push(elem.pastCount);
       });
-      new Chart(myChartRef, {
+
+      if(this.chart) {
+        this.chart.destroy();
+      }
+
+      // reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
+      // Arguments: x0,y0,x1,y1 where 0 is start point and 1 is end point
+      // Creates gradient along line given by two coordinates
+      var fillPattern = myChartRef.createLinearGradient(0,50,0,300);
+      // reference: https://www.w3schools.com/tags/canvas_addcolorstop.asp
+      // integer is value that represents the position between start and end in gradient
+      fillPattern.addColorStop(.75, 'green');
+      fillPattern.addColorStop(.5, 'yellow');
+      fillPattern.addColorStop(.1, 'red');
+      this.chart = new Chart(myChartRef, {
           type: "line",
           data: {
               //Bring in data
@@ -139,7 +144,8 @@ export default class Home extends React.Component {
               datasets: [
                   {
                       // Set color to white with a darkness value of .35 (grey)
-                      backgroundColor: "rgba(0,0,0,.35)",
+                      // backgroundColor: "rgba(0,0,0,.35)",
+                      backgroundColor: fillPattern,
                       data: data
                   }
               ]
@@ -148,9 +154,7 @@ export default class Home extends React.Component {
               maintainAspectRatio: false,
               animation: {duration: 0},
               // hide title and other misc info
-              legend: {
-                  display: false
-              },
+              legend: {display: false},
               scales: {
                   yAxes: [{
                       ticks: {
@@ -341,6 +345,10 @@ export default class Home extends React.Component {
     // Uses day and time info to return a string corresponding to the current meal
     // returns Closed as default
     getMeal() {
+      if (this.state.time.hours() <= 19 && this.state.time.hours() >= 17) {
+        return "dinner";
+      }
+      // If it is Sunday or Saturday AND not dinner
       if(this.state.time.day() === 0 || this.state.time.day() === 6)
       {
         if((this.state.time.hours() === 12 && this.state.time.minutes() <= 45) 
@@ -348,11 +356,9 @@ export default class Home extends React.Component {
           || this.state.time.hours() === 11) {
           return "brunch";
         }
-        else if (this.state.time.hours() <= 19 && this.state.time.hours() >= 17) {
-          return "dinner";
-        }
         return "Closed";
       }
+      // If it is a weekday AND not dinner
       else if ((this.state.time.hours() === 7 && this.state.time.minutes() >= 30)
                 || this.state.time.hours() === 8
                 || (this.state.time.hours() === 9 && this.state.time.minutes() <= 30)) {
@@ -362,9 +368,6 @@ export default class Home extends React.Component {
                 || this.state.time.hours() === 12
                 || (this.state.time.hours() === 13 && this.state.time.minutes() <= 15)) {
         return "lunch";
-      }
-      else if (this.state.time.hours() <= 19 && this.state.time.hours() >= 17) {
-        return "dinner";
       }
       return "Closed";
     }
@@ -382,10 +385,12 @@ export default class Home extends React.Component {
                 <center><h2>Hoch Population:</h2>&nbsp;
                 {/* loads the value of currentCount */}
                 <h2>{this.state.currentCount}</h2>
-                <h3>{this.state.time.format("dddd, MMMM Do YYYY, h:mm:ss a")}</h3>
+                <br/>
+                <h2>{this.state.time.format("dddd, MMMM Do YYYY, h:mm:ss a")}</h2>
+                <br/>
                 <h2>{this.getMeal()}</h2></center>
             </section>
-            <div className = "small-container">
+            <div className="homeGraph">
               <canvas ref={this.chartRef}/>
             </div>
           </div>

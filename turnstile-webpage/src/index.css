@@ -1,7 +1,8 @@
-div {
-  padding: 0 0 0 0;
-}
-
+/* Helpful site for font-sizing 
+   https://stackoverflow.com/questions/11777598/font-size-relative-to-the-users-screen-resolution
+   % is based off 12 pt font
+   vw and vh stand for viewport width and viewport height, and scale with window size  
+*/
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #fff;
@@ -14,8 +15,9 @@ header {
   padding: 1.5% 0 1.5% 1%;
 }
 
+/* Used for the Turnstile title in the black box*/
 header h1 {
-  font-size: 25px;
+  font-size: 5vh;
   font-weight: 600;
   letter-spacing: 0.3px;
   display: inline-block;
@@ -24,11 +26,28 @@ header h1 {
   vertical-align: middle;
 }
 
+/* Used in the about page */
+h1 {
+  font-size: 200%;
+  margin-top: 0;
+}
+
+/* Used for the home page display text */
 h2 {
-  font-size: 100%;
+  font-size: 2.5vw;
   letter-spacing: 0.3px;
   display: inline-block;
   margin: 0;
+  vertical-align: middle;
+}
+
+/* Used in the about page */
+h3 {
+  font-size: 100%;
+  font-weight: 100;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  margin: 0 0 1% 0;
   vertical-align: middle;
 }
 
@@ -38,12 +57,20 @@ h2 {
   padding-top: 1.5%;
 }
 
+.homeGraph {
+  width: 100%;
+  height: 65vh;
+}
+
+/* Used by both home and history page graphs*/
 .small-container {
   display: inline-flex;
   margin-top: .5%;
-  width: 75%;
+  width: 100%;
+  height: 60vh;
 }
 
+/* Used by black title bar at top of screen */
 .wrapper {
   max-width: 100%;
   margin: 0 auto;
@@ -54,32 +81,24 @@ h2 {
   border-top: 3px solid #000000;
   margin-right: 5%;
   background-color: rgb(237, 237, 237);
-  padding: 6% 3%;
+  padding: 5vh 1vw;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
   margin-bottom: 5%;  
-  width: 25%;
+  width: 20vw;
+  height: 100%;
   margin-right: auto;
-}
-
-.display-meal {
-  border-radius: 2px;
-  border-top: 3px solid #000000;
-  background-color: rgb(237, 237, 237);
-  padding: 6% 3%;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
-  height: 10%;
-  margin-left: 5%;
 }
 
 .display-about {
   border-radius: 2px;
   border-top: 3px solid #000000;
   background-color: rgb(237, 237, 237);
-  padding: 6% 3%;
+  padding: 2% 1.5%;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
-  margin-top: 5%;
+  margin-top: 1.5%;
 }
 
+/* Unordered list */
 ul {
   display: flex;
   flex-wrap: wrap;
@@ -87,6 +106,7 @@ ul {
   padding: 0;
 }
 
+/* List */
 li {
   width: calc(100%);
   list-style-type: none;
@@ -99,7 +119,7 @@ li {
   height: 0%;
 }
 
-/* different spacings for different buttons - not optimal solution but it works */
+/* Different spacing for different button types */
 day {
   margin-right: 2%;
 }
@@ -116,40 +136,34 @@ dinner {
   margin-left: 16%;
 }
 
-
-li h3 {
-  background-color: #000000;
-  margin: 0;
-  color: #fff;
-  font-weight: 300;
-  padding: 15px;
-}
-
-li p {
-  padding: 15px;
-}
-
-form button {
-  width: 10%;
-  margin-top: 5px;
-  margin-right: 5px;
-}
-
 button {
   width: 12%;
   height: 4%;
   background-color: rgb(225, 225, 2);
   cursor: pointer;
   border: 0;
-  color: rgb(255, 255, 255);
-  font-size: 45%;
+  color: #000;
+  font-size: 1.5vh;
   font-weight: bold;
-  padding: 1% 1%;
+  padding: 1% 0;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,.14), 1px 10px 10px -2px rgba(0,0,0,.12), 2px 1px 1px 0 rgba(0,0,0,.2);
+  /* Prevent button resizing on smaller screens and cut off text */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.thinText {
+  font-weight: lighter;
 }
 
 .meal {
   margin-top: .25%;
+  font-weight: lighter;
+}
+
+.selected {
+  font-weight: lighter;
+  background-color: rgb(0, 175, 0);
 }
 
 /* This is the invisible rectangle that is used to keep proper spacing */

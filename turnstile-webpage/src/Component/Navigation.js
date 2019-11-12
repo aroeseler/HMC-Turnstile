@@ -13,14 +13,12 @@ const Navigation = () => {
                         <day><Link to = {'/historyPage'}>
                             <button>History</button>
                         </Link></day>
-                        <day><a href = {'https://menu.yancey.io/'}>
-                            <button>5C Menu</button>
-                        </a></day>
-                        {/*
                         <day><Link to = {'/About'}>
-                            <button>About Us</button>
+                            <button>About</button>
                         </Link></day>
-                        */}
+                        <day><a href = {'https://menu.yancey.io/'}>
+                            <button>Menu</button>
+                        </a></day>
                     </section>
                 </ul>
             </div>
