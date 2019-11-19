@@ -254,7 +254,7 @@ export default class Home extends React.Component {
       return newHistory;
   }
 
-  // Same implenetation as pullBreakfastHistory
+  // Same implemetation as pullBreakfastHistory
   pullLunchHistory(day) {
       let newHistory = [];
       this.database.ref("history").orderByChild("weekday").equalTo(day).on("value", (snapshot) => {
