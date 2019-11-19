@@ -9,6 +9,7 @@ from imutils.video import VideoStream
 import imutils
 import time
 from firebase import firebase
+from objectDetection.databaseFunctions import FirebaseFunctions
 
 # define arguments when running file
 ap = argparse.ArgumentParser()
@@ -34,6 +35,7 @@ time.sleep(2.0)
 while True:
     image = stream.read()
     image = imutils.resize(image, width=300)
+    database = FirebaseFunctions()
     
     #image = cv2.imread(args["image"])
     (h, w) = image.shape[:2]
@@ -58,7 +60,7 @@ while True:
             endX = detection[5] * w
             endY = detection[6] * h
             centroid = ((endX - startX)/2, (endY - startY)/2)
-            firebase.put('/count', "value", count)
+            database.updateCount(firebase, count)
 
             # display the prediction
             cv2.rectangle(image, (int(startX), int(startY)), (int(endX), int(endY)), (23,230,210), 2)
@@ -69,4 +71,4 @@ while True:
         break
     
 cv2.destroyAllWindows()
-stream.stop()  
+stream.stop()
