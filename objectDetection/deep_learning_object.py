@@ -8,7 +8,7 @@ import cv2
 from imutils.video import VideoStream
 import imutils
 import time
-from firebase import firebase
+# from firebase import firebase
 
 # define arguments when running file
 ap = argparse.ArgumentParser()
@@ -16,7 +16,7 @@ ap.add_argument("-p", "--prototxt", required=True, help="path to Caffe 'deploy' 
 ap.add_argument("-m", "--model", required=True, help="path to pretrained Caffe model")
 ap.add_argument("-c", "--confidence", type=float, default = 0.2, help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
-firebase = firebase.FirebaseApplication("https://flipper-glob-webpage.firebaseio.com")
+#  firebase = firebase.FirebaseApplication("https://flipper-glob-webpage.firebaseio.com")
 
 # define classification labels that MobileNet SSD was trained on
 CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
@@ -58,7 +58,7 @@ while True:
             endX = detection[5] * w
             endY = detection[6] * h
             centroid = ((endX - startX)/2, (endY - startY)/2)
-            firebase.put('/count', "value", count)
+            # firebase.put('/count', "value", count)
 
             # display the prediction
             cv2.rectangle(image, (int(startX), int(startY)), (int(endX), int(endY)), (23,230,210), 2)
