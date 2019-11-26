@@ -22,12 +22,16 @@ from pyimagesearch.centroidtracker import CentroidTracker
 from pyimagesearch.trackableobject import TrackableObject
 from imutils.video import VideoStream
 from imutils.video import FPS
+from firebase import firebase
 import numpy as np
 import argparse
 import imutils
 import time
 import dlib
 import cv2
+import sys
+sys.path.insert(1, '/Users/aarontrujillo/Desktop/HMC-Turnstile/piFirebase/')
+import config
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -52,6 +56,12 @@ CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
 	"dog", "horse", "motorbike", "person", "pottedplant", "sheep",
 	"sofa", "train", "tvmonitor"]
 
+# Initialize firebase server
+firebase = firebase.FirebaseApplication(config.databaseURL)
+
+# reset databse count every time we rerun the program
+firebase.put('/count', "value", 0)
+database_count = 0
 # load our serialized model from disk
 print("[INFO] loading model...")
 net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
@@ -224,19 +234,25 @@ while True:
 			direction = centroid[1] - np.mean(y)
 			to.centroids.append(centroid)
 
+			if to.count != True or to.above == True or to.below == True:
+			database_count = database_count + 1
 			# if the direction is negative (indicating the object
 			# is moving up) AND the centroid is above the center
 			# line, count the object
-			if direction < 0 and centroid[1] < H // 2:
-				totalUp += 1
-				to.counted = True
+				if direction < 0 and centroid[1] < H // 2 and to.above == False:
+					totalUp += 1
+					to.above = True
+					firebase.put('/count', "value", database_count)
+					
 
-			# if the direction is positive (indicating the object
-			# is moving down) AND the centroid is below the
-			# center line, count the object
-			elif direction > 0 and centroid[1] > H // 2:
-				totalDown += 1
-				to.counted = True
+				# if the direction is positive (indicating the object
+				# is moving down) AND the centroid is below the
+				# center line, count the object
+				elif direction > 0 and centroid[1] > H // 2 and to.below == False:
+					database_count = database_count - 1
+					totalDown += 1
+					to.below = True
+					firebase.put('/count', "value", database_count)
 
 		# store the trackable object in our dictionary
 		trackableObjects[objectID] = to

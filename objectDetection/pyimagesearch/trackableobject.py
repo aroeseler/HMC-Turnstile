@@ -8,3 +8,7 @@ class TrackableObject:
 		# initialize a boolean used to indicate if the object has
 		# already been counted or not
 		self.counted = False
+		# initialize booleans to be able to track people going back 
+		# and forth over threshold line
+		self.above = False
+		self.below = False

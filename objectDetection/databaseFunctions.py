@@ -3,6 +3,11 @@
 # Migrating Firebase functionality from website to Pi
 
 class FirebaseFunctions:
+
+    # retrieve current count value
+    def getCount(self, database):
+        database.get('/count/value', None)
+
     # update value of count in database to count
     def updateCount(self, database, count):
         database.update('/count', "value", count)
