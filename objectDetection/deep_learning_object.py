@@ -9,7 +9,8 @@ from imutils.video import VideoStream
 import imutils
 import time
 from firebase import firebase
-from objectDetection.databaseFunctions import FirebaseFunctions
+from databaseFunctions import FirebaseFunctions
+from datetime import datetime
 
 # define arguments when running file
 ap = argparse.ArgumentParser()
@@ -30,6 +31,10 @@ net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 # create video stream from camera
 stream = VideoStream(src=0).start()
 time.sleep(2.0)
+
+# create time object
+time = datetime.time()
+date = datetime.date()
 
 # display video stream
 while True:
@@ -60,11 +65,19 @@ while True:
             endX = detection[5] * w
             endY = detection[6] * h
             centroid = ((endX - startX)/2, (endY - startY)/2)
+
+            # firebase.put('/count', "value", count)
+
             database.updateCount(firebase, count)
 
             # display the prediction
             cv2.rectangle(image, (int(startX), int(startY)), (int(endX), int(endY)), (23,230,210), 2)
-                    
+    
+    # push new history entry every 5 seconds
+    if (time.second % 5) == 0:
+        meal = firebase.getMeal(date, time)
+        database.pushEntry(firebase, count, t.day, t.hour, t.minute, meal)
+    
     cv2.imshow("frame", image)
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
