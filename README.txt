@@ -4,7 +4,7 @@ Feel free to add any comments about file descriptions, implementations, etc here
 GitHub does not upload the packages when pushing
 You must run the following lines before using yarn start to run the webpage
 
-First, set your directory to flipper-glob-webpage
+First, set your directory to turnstile-webpage
 
 yarn global add create-react-app
 yarn global add firebase --dev
@@ -16,7 +16,7 @@ yarn global add chart.js
 ##########
 
 ##### Note for Deploy Firebase Hosting #####
-Run the following lines in the flipper-glob-webpage directory
+Run the following lines in the turnstile-webpage directory
 
 firebase login
 yarn build
