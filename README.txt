@@ -16,7 +16,7 @@ yarn global add chart.js
 ##########
 
 ##### Note for Deploy Firebase Hosting #####
-Run the following lines also in the flipper-glob-webpage directory
+Run the following lines in the flipper-glob-webpage directory
 
 firebase login
 yarn build
