@@ -16,6 +16,9 @@ const Navigation = () => {
                         <day><Link to = {'/About'}>
                             <button>About</button>
                         </Link></day>
+                        <day><Link to = {'/Demo'}>
+                            <button>About</button>
+                        </Link></day>
                         <day><a href = {'https://menu.yancey.io/'}>
                             <button>Menu</button>
                         </a></day>
