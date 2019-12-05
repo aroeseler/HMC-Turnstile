@@ -6,11 +6,11 @@ class FirebaseFunctions:
 
     # retrieve current count value
     def getCount(self, database):
-        database.get('/count/value', None)
+        return database.get('/count/value', None)
 
     # update value of count in database to count
     def updateCount(self, database, count):
-        database.update('/count', "value", count)
+        database.put('/count', "value", count)
     
     # push history entry to database
     def pushEntry(self, database, value, weekday, hour, minute, meal):
